@@ -1,9 +1,7 @@
 package com.api.the_chef_backend.model.dtos.auth;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.util.UUID;
-
 
 @Schema(name = "auth response dto", description = "dto que contém a resposta da autenticação")
 public record AuthResponseDTO(
@@ -14,6 +12,9 @@ public record AuthResponseDTO(
         String name,
 
         @Schema(description = "E-mail do usuário", example = "contato@sushisashimi.com")
-        String email
+        String email,
+
+        @Schema(description = "Token JWT do usuário", example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
+        String token 
 ) {
 }
