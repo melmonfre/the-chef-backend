@@ -85,24 +85,13 @@ public class AuthService {
             throw new UnauthorizedException("Email ou senha inválidos");
         }
 
-        // Realiza a autenticação
-        Authentication authentication = new UsernamePasswordAuthenticationToken(
-                dto.getEmail(),
-                dto.getPassword()
-        );
-
-        authenticationManager.authenticate(authentication);
-
-        // Gera o token JWT
-        String token = jwtTokenProvider.generateToken(authentication);
-
-        // Retorna a resposta com o token JWT
+        // Retorna a resposta sem o token JWT
         return new AuthResponseDTO(
                 restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getEmail(),
-                token // Inclui o token na resposta
+                null // Não inclui o token na resposta
         );
     }
-    
+
 }
